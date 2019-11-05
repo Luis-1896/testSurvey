@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+  
+.form-container > * {
+    width: 100%;
+}
+
+.router-container {
+  position: relative;
+}
+
+.router-container > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}

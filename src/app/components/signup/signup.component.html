@@ -1,0 +1,64 @@
+<br>
+<div class="container">
+  <div fxLayoutAlign="center" fxFlex="70%" class="two" fxLayout="column" fxFlex.gt-sm="70%">
+    <h2 class="mat-display-1" fxLayoutAlign="center center" >Sign Up</h2>
+    <form #f="ngForm" (ngSubmit)="signup(f)" >
+      <div class="form-container">
+        <div fxLayout="column" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput ngModel name="name" #name="ngModel" type="text" placeholder="Your name" required>
+          <mat-error *ngIf="name.invalid && name.touched">Name is required</mat-error>
+        </mat-form-field>
+       
+        <mat-form-field>
+          <input matInput ngModel name="company" #company="ngModel" type="text" placeholder="Company" required>
+          <mat-error *ngIf="company.invalid && company.touched">Company is required</mat-error>
+        </mat-form-field>
+          
+        <mat-form-field>
+          <input matInput ngModel name="email" #email="ngModel" type="email" placeholder="Email" required email>
+          <mat-error *ngIf="email.touched && email.errors?.required">Email is required</mat-error>
+          <mat-error *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input matInput ngModel name="password"  #password="ngModel" [type]="hidePassword ? 'password' : 'text'" placeholder="Password" required minlength="6">
+          <mat-error *ngIf="password.touched && password.errors?.required">Password is required</mat-error>
+          <mat-error *ngIf="password.touched && password.errors?.minlength">Password should be +6 charachters</mat-error>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+         
+        <mat-form-field>
+          <input matInput ngModel name="passwordConfirm"  #passwordConfirm="ngModel" [type]="hidePasswordRepeat ? 'password' : 'text'"  placeholder="Confirm Password" required>
+          <mat-error *ngIf="passwordConfirm.invalid && passwordConfirm.touched">Confirm Password is required</mat-error>
+          <mat-error *ngIf="passwordConfirm.value !== password.value && passwordConfirm.touched">Password are not equal</mat-error>
+          <button mat-icon-button matSuffix (click)="hidePasswordRepeat = !hidePasswordRepeat" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordRepeat">
+            <mat-icon>{{hidePasswordRepeat ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!--<mat-radio-group aria-label="Select for a new administrator">
+          <mat-radio-button ngModel name="admin"  #admin="ngModel" >Admin</mat-radio-button>
+        </mat-radio-group>-->
+        <!--<mat-form-field *ngIf='!isSuperAdmin'>
+          <input matInput ngModel name="company" #company="ngModel" type="text" placeholder="Put admit" required>
+          <mat-error *ngIf="company.invalid && company.touched">Put admin</mat-error>
+        </mat-form-field>-->
+        </div>
+      </div>
+     
+      <div fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="20px">
+            <button mat-raised-button color="primary"  [disabled]="f.invalid || passwordConfirm.value !== password.value" >Create Account</button>
+            <button  mat-raised-button color="primary" type="reset">New User</button>
+      </div>              
+    </form>
+    
+    <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+  </div>
+ 
+</div>
+
+
+

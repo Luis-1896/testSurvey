@@ -1,0 +1,70 @@
+
+
+<!--<mat-accordion>
+    
+    <mat-expansion-panel (opened)="panelOpenState = true" 
+                         (closed)="panelOpenState = false"
+                         (click)="info()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+-->
+
+
+<br>
+<div class="container">
+<table class="table table-bordered ">
+    <thead class="text-center">
+        <td>Name</td>
+        <td>Company</td>
+        <td>Email</td>
+        <td>Options</td>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let good of prue; index as i" >
+            
+          
+              <td *ngIf="good.admin===false">{{good.name}}</td>
+              <td *ngIf="good.admin===false">{{good.company}}</td>
+              <td *ngIf="good.admin===false">{{good.email}}</td>
+              <td *ngIf="good.admin===false"><button mat-raised-button color="primary" [disabled]="good.status===false" (click)="info(i)">View Survey</button></td>
+            
+            
+        </tr>
+    </tbody>
+    <br>
+    <thead class="text-center">
+        <td>Answer1</td>
+        <td>Answer2</td>
+        <td>Answer3</td>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let sur of surveyprueba">
+          
+              <td >{{sur.answer1}}</td>
+              <td >{{sur.answer2}}</td>
+              <td >{{sur.answer3}}</td>
+         
+            
+        </tr>
+    </tbody>
+   
+</table>
+
+
+
+
+</div>
+
+
+

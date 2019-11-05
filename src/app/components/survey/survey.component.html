@@ -1,0 +1,36 @@
+
+
+<div class="container">
+    <div fxLayoutAlign="center" fxFlex="80%" class="two" fxLayout="column" fxFlex.gt-sm="80%">
+        <h2 class="mat-display-1" fxLayoutAlign="center center">Antware Survey</h2>
+        <form #f="ngForm" (ngSubmit)="survey(f)">
+            <div class="form-container">
+                <div fxLayout="column" fxLayoutGap="20px">
+                    <mat-form-field>
+                        <input matInput type="text" ngModel name="answer1" #answer1="ngModel" placeholder="Question 1" required>
+                        <mat-error *ngIf="answer1.touched && answer1.errors?.required">Answer is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <textarea matInput ngModel name="answer2" #answer2="ngModel" placeholder="Question 2"required></textarea>
+                        <mat-error *ngIf="answer2.touched && answer2.errors?.required">Answer is required</mat-error>
+                    </mat-form-field>
+                    
+                    <mat-radio-group name="answer3" [(ngModel)]="optionSelect">
+                            <p>Question 3</p>
+                            <mat-radio-button *ngFor="let op of typeOption" name="answer3" [value]="op"  style="margin: 10px">
+                                    {{op}}
+                            </mat-radio-button>
+                    </mat-radio-group>
+                
+                                
+                                  
+                </div>
+            </div>
+            <div fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" [disabled]="f.invalid">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+           

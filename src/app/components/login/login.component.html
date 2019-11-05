@@ -1,0 +1,30 @@
+<div class="container">
+    <div fxLayoutAlign="center" fxFlex="70%" class="two" fxLayout="column" fxFlex.gt-sm="70%">
+        <h2 class="mat-display-1" fxLayoutAlign="center center">Log In</h2>
+        <form #f="ngForm" (ngSubmit)="login(f)">
+            <div class="form-container">
+                <div fxLayout="column" fxLayoutGap="20px">
+                <mat-form-field>
+                    <input matInput type="email" ngModel name="email" #email="ngModel" placeholder="Email" required email>
+                    <mat-error *ngIf="email.touched && email.errors?.required">Email is required</mat-error>
+                    <mat-error *ngIf="email.touched && email.errors?.email">Your input doesn't match email format</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="password" ngModel name="password" #password="ngModel" type="password" placeholder="Password" required minlength="6">
+                    <mat-error *ngIf="password.touched && password.errors?.required">Password is required</mat-error>
+                    <mat-error *ngIf="password.touched && password.errors?.minlength">Password should be +6 charachters</mat-error>
+                </mat-form-field>
+             </div>
+            </div>
+           
+            <div fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" [disabled]="f.invalid">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+       
+        
+
+    

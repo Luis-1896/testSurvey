@@ -1,0 +1,31 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+div.container
+{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+div.container > div
+{
+  flex: 1 1 5em;
+  margin-left: 1px;
+  height:auto;
+  background-color:white;
+}
+
+div.container > div.two
+{
+  padding: 3px 10px;
+ // border: PowderBlue 5px outset;
+ border: #3f51b5 5px solid; 
+ border-radius: 20px;
+  flex:3 2 calc(15em + 10px); /** 10px is the missing margin of the missing box */
+}
