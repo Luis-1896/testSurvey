@@ -12,7 +12,7 @@
             <button mat-button routerLink="/survey" routerLinkActive="active">Survey</button>
         </div>
         <div *ngIf="isClient && isAdmin">
-            <button mat-button routerLink="/results" routerLinkActive="active">Results</button>
+            <button mat-button routerLink="/admin" routerLinkActive="active">Results</button>
         </div>
         <div *ngIf="isClient && isAdmin || isClient && isSuperAdmin">
             <button mat-button routerLink="/signup" routerLinkActive="active">Signup</button>
@@ -33,7 +33,7 @@
         <button mat-button routerLink="/survey" routerLinkActive="active">Survey</button>
     </div>
     <div *ngIf="isClient && isAdmin">
-        <button mat-button routerLink="/results" routerLinkActive="active">Results</button>
+        <button mat-button routerLink="/admin" routerLinkActive="active">Results</button>
     </div>
     <div *ngIf="isClient && isAdmin || isClient && isSuperAdmin">
         <button mat-button routerLink="/signup" routerLinkActive="active">Signup</button>

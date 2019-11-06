@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Survey } from 'src/app/interfaces/survey.interfaces';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class AdminComponent implements OnInit {
 
 
   //dataSource = this.prue;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
 
@@ -44,7 +45,7 @@ export class AdminComponent implements OnInit {
           id: prueba.payload.doc.id,
           ...prueba.payload.doc.data()
         }
-      })
+      });
     });
 
 
@@ -54,14 +55,19 @@ export class AdminComponent implements OnInit {
 
   info(index) {
     console.log(`${this.prue[index].id}`);
-    this.userService.getsurvey(this.prue[index].id).subscribe(sur => {
+    sessionStorage.setItem('iDUserSurvey', this.prue[index].id);
+   // console.log(`${sessionStorage.getItem('iDUserSurvey')}`);
+    this.router.navigate(['/results']);
+
+    /*this.userService.getsurvey(this.prue[index].id).subscribe(sur => {
       this.surveyprueba = sur.map(pru => {
         return {
           id: pru.payload.doc.id,
           ...pru.payload.doc.data()
         }
       })
-    });
+    });*/
+
   }
 }
 

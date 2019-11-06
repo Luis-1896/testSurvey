@@ -43,8 +43,8 @@ export class UserService {
     return this.angularFirestore.doc(`users/${sessionStorage.getItem('id')}`).valueChanges();
   }
 
-  getsurvey(id) {
-    return this.angularFirestore.collection(`users/${id}/survey`).snapshotChanges();
+  getsurvey() {
+    return this.angularFirestore.collection(`users/${sessionStorage.getItem('iDUserSurvey')}/survey`).snapshotChanges();
   }
 
 

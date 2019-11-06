@@ -28,6 +28,7 @@ import { AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import { environment } from './../environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ResultsComponent } from './components/admin/results/results.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     SurveyComponent,
     AdminComponent,
-    NavbarComponent
+    NavbarComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

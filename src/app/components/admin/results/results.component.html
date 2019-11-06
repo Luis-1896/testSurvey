@@ -1,0 +1,24 @@
+<br>
+<div class="container">
+<table class="table table-bordered ">
+    <thead class="text-center">
+        <td>Answer1</td>
+        <td>Answer2</td>
+        <td>Answer3</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sur of surveyprueba">
+          
+              <td >{{sur.answer1}}</td>
+              <td >{{sur.answer2}}</td>
+              <td >{{sur.answer3}}</td>
+         
+            
+        </tr>
+    </tbody>
+   
+</table>
+    <button mat-raised-button color="primary" (click)="returnAdmin()">Back</button>
+</div>
+
+
