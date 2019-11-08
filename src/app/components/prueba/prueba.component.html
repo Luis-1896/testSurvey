@@ -1,0 +1,38 @@
+<div class="table-container" role="table" aria-label="Destinations">
+    <div class="flex-table header" role="rowgroup">
+    <div class="flex-row first" role="columnheader">Name</div>
+    <div class="flex-row" role="columnheader">Company</div>
+    <div class="flex-row" role="columnheader">Email</div>
+    <div class="flex-row" role="columnheader">Options</div>
+    
+  </div>
+  <div class="flex-table row" role="rowgroup" *ngFor="let good of prue; index as i">
+    <div class="flex-row first" role="cell" *ngIf="good.admin===false"><span class="flag-icon flag-icon-gb"></span>{{good.name}}</div>
+    <div class="flex-row" role="cell" *ngIf="good.admin===false">{{good.company}} </div>
+    <div class="flex-row" role="cell" *ngIf="good.admin===false">{{good.email}}</div>
+  
+    <div class="flex-row" role="cell" *ngIf="good.admin===false"><button mat-raised-button color="primary" [disabled]="good.status===false" (click)="info(i)">View Survey</button></div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="three">
+
+        <div style="display: block">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [colors]="doughnutChartColors"
+              [chartType]="doughnutChartType">
+            </canvas>
+          </div>
+
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="actualizar()">Actualizar</button>
+    </div>
+</div>
+

@@ -8,4 +8,5 @@ export interface Prueba {
     admin?: boolean;
     superadmin?: boolean;
     id?: string;
+    status?: boolean;
 }

@@ -30,6 +30,9 @@ import { environment } from './../environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResultsComponent } from './components/admin/results/results.component';
 
+import { ChartsModule } from 'ng2-charts';
+import { PruebaComponent } from './components/prueba/prueba.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { ResultsComponent } from './components/admin/results/results.component';
     SurveyComponent,
     AdminComponent,
     NavbarComponent,
-    ResultsComponent
+    ResultsComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { ResultsComponent } from './components/admin/results/results.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    ChartsModule
   ],
   providers: [
     {provide:FirestoreSettingsToken,useValue:{}}

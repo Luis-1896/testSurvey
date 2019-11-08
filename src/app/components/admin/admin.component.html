@@ -26,6 +26,7 @@
         <td>Name</td>
         <td>Company</td>
         <td>Email</td>
+        <td>Status</td>
         <td>Options</td>
         
     </thead>
@@ -36,6 +37,7 @@
               <td *ngIf="good.admin===false">{{good.name}}</td>
               <td *ngIf="good.admin===false">{{good.company}}</td>
               <td *ngIf="good.admin===false">{{good.email}}</td>
+              <td *ngIf="good.admin===false">{{good.status}}</td>
               <td *ngIf="good.admin===false"><button mat-raised-button color="primary" [disabled]="good.status===false" (click)="info(i)">View Survey</button></td>
             
             
@@ -45,6 +47,24 @@
 </table>
 
 
+
+
+</div>
+
+
+<div>
+  <div >
+    <div style="display: block">
+      <canvas baseChart
+        [data]="doughnutChartData"
+        [labels]="doughnutChartLabels"
+        [colors]="doughnutChartColors"
+        [chartType]="doughnutChartType">
+      </canvas>
+    </div>
+  </div>
+
+    <button mat-raised-button color="primary" (click)="actualizar()">Actualizar</button>
 
 
 </div>

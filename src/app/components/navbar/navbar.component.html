@@ -17,6 +17,9 @@
         <div *ngIf="isClient && isAdmin || isClient && isSuperAdmin">
             <button mat-button routerLink="/signup" routerLinkActive="active">Signup</button>
         </div>
+        <div *ngIf="isClient && isAdmin">
+          <button mat-button routerLink="/prueba" routerLinkActive="active">Prueba</button>
+         </div>
         <div *ngIf="isAdmin || isSuperAdmin" >
             <button mat-raised-button color="warn" (click)="logout()">Logout</button>  
         </div>
@@ -38,6 +41,9 @@
     <div *ngIf="isClient && isAdmin || isClient && isSuperAdmin">
         <button mat-button routerLink="/signup" routerLinkActive="active">Signup</button>
     </div>
+    <div *ngIf="isClient && isAdmin">
+      <button mat-button routerLink="/prueba" routerLinkActive="active">Prueba</button>
+     </div>
     <div  *ngIf="isAdmin || isSuperAdmin" >
         <button mat-raised-button color="warn" (click)="logout()">Logout</button>  
     </div>

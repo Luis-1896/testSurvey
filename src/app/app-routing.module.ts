@@ -6,6 +6,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { ResultsComponent } from './components/admin/results/results.component';
+import { PruebaComponent } from './components/prueba/prueba.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'survey', component: SurveyComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'results', component: ResultsComponent, canActivate: [AuthGuard] },
-  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] }
+  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
+  { path: 'prueba', component: PruebaComponent, canActivate: [AuthGuard] }
 
 
 ];

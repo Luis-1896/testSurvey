@@ -1,38 +1,20 @@
 import { Prueba } from './../../interfaces/prueba.interfaces';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from 'src/app/interfaces/user.interface';
-import { UserService } from 'src/app/services/user.service';
-import { Subscription } from 'rxjs';
-import { Survey1 } from 'src/app/interfaces/survey1.interface';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { Survey } from 'src/app/interfaces/survey.interfaces';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-
-
+import { Label, MultiDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  selector: 'app-prueba',
+  templateUrl: './prueba.component.html',
+  styleUrls: ['./prueba.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class PruebaComponent implements OnInit {
 
-  panelOpenState: boolean;
   prue: Prueba[] = [];
   surveyprueba: Survey[] = [];
-  prueObservable: Subscription;
-
   contestado = 0;
   nocontestado = 0;
 
@@ -41,7 +23,7 @@ export class AdminComponent implements OnInit {
   //Doughnut
   public doughnutChartLabels: Label[] = ['Contestado', 'No contestado'];
   public doughnutChartData: MultiDataSet = [
-    [1, 1]
+    [0, 0]
   ];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors = [
@@ -50,11 +32,9 @@ export class AdminComponent implements OnInit {
     },
   ];
 
-  //dataSource = this.prue;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-
     this.userService.getUser().subscribe(cart => {
       this.prue = cart.map(prueba => {
         return {
@@ -63,9 +43,7 @@ export class AdminComponent implements OnInit {
         }
       });
     });
-
   }
-
 
   info(index) {
     console.log(`${index}`);
@@ -85,10 +63,6 @@ export class AdminComponent implements OnInit {
     });*/
 
   }
-
-
-
-
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
@@ -111,8 +85,9 @@ export class AdminComponent implements OnInit {
       }
 
     }
+    
     this.doughnutChartData = [[this.contestado, this.nocontestado]];
   }
+
+
 }
-
-
