@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node serve.js",
+    "start": "nodemon serve.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +36,7 @@
     "jquery": "^3.4.1",
     "ng2-charts": "^2.3.0",
     "ngx-spinner": "^8.0.3",
+    "nodemon": "^1.19.4",
     "popper.js": "^1.16.0",
     "rxjs": "^6.4.0",
     "tslib": "^1.10.0",
