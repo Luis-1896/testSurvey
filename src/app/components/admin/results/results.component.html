@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <div class="container">
 <table class="table table-bordered ">
     <thead class="text-center">
@@ -20,5 +20,24 @@
 </table>
     <button mat-raised-button color="primary" (click)="returnAdmin()">Back</button>
 </div>
-
-
+-->
+<div class="container">
+    <div fxLayoutAlign="center" fxFlex="70%" class="two" fxLayout="column" fxFlex.gt-sm="70%">
+        <h2 class="mat-display-2" fxLayoutAlign="center center">Answers</h2>
+        
+            <div class="form-container">
+                <div fxLayout="column" fxLayoutGap="20px" *ngFor="let surveyp of surveyprueba">
+                    <h4 class="mat-display-1" fxLayoutAlign="start" >Answers 1</h4>
+                    <p>{{surveyp.answer1}}</p>
+                    <h4 class="mat-display-1">Answers 2</h4>
+                    <p>{{surveyp.answer2}}</p>
+                    <h4 class="mat-display-1">Answers 3</h4>
+                    <p>{{surveyp.answer3}}</p>
+                </div>
+            </div>
+           <div fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" (click)="returnAdmin()">Back</button>
+            </div>
+        
+    </div>
+</div>
